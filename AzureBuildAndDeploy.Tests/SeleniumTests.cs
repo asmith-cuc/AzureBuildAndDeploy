@@ -22,8 +22,6 @@ namespace AzureBuildAndDeploy.Tests
             elementToClick.Click();
 
             Assert.That(driver.PageSource == newWebPageUrl);
-
-            driver.Quit();
         }
 
     }
