@@ -15,7 +15,7 @@ namespace AzureBuildAndDeploy.Tests
             var driver = new ChromeDriver(chromeDriverPath);
             driver.Navigate().GoToUrl("https://www.google.com/");
             driver.Quit();
-            Assert.Pass();
+            Assert.Fail();
         }
 
     }
