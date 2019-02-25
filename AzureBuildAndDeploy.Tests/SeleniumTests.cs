@@ -8,11 +8,11 @@ namespace AzureBuildAndDeploy.Tests
     [TestFixture]
     public class SeleniumTests
     {
-        [Test]
+        [Test, Ignore("just do it")]
         public void SeleniumTest()
         {
             var chromeDriverPath = Environment.GetEnvironmentVariable("ChromeWebDriver");
-            var driver = new ChromeDriver();
+            var driver = new ChromeDriver(chromeDriverPath);
             var appUrl = "https://cuc-buildanddeploy.azurewebsites.net/";
             var newWebPageUrl = "https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.2";
 
