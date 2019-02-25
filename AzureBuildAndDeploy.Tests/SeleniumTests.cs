@@ -11,7 +11,8 @@ namespace AzureBuildAndDeploy.Tests
         [Test]
         public void SeleniumTest()
         {
-            var driver = new ChromeDriver();
+            var chromeDriverPath = Environment.GetEnvironmentVariable("ChromeWebDriver");
+            var driver = new ChromeDriver(chromeDriverPath);
             driver.Navigate().GoToUrl("https://www.google.com/");
             driver.Quit();
             Assert.Pass();
