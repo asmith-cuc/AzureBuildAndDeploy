@@ -14,14 +14,22 @@ namespace AzureBuildAndDeploy.Tests
             var chromeDriverPath = Environment.GetEnvironmentVariable("ChromeWebDriver");
             var driver = new ChromeDriver(chromeDriverPath);
             var appUrl = "https://cuc-buildanddeploy.azurewebsites.net/";
-            var newWebPageUrl = "https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.2";
 
             driver.Navigate().GoToUrl(appUrl);
 
-            var elementToClick = driver.FindElementById("overviewLink");
-            elementToClick.Click();
-
-            Assert.That(driver.PageSource == newWebPageUrl);
+            try
+            {
+                var elementToClick = driver.FindElementById("doesnotexist");
+                Assert.Pass();
+            }
+            catch (NoSuchElementException ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+            finally
+            {
+                driver.Quit();
+            }
         }
 
     }
